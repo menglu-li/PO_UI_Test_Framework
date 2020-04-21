@@ -55,3 +55,6 @@ class BasePage():
         element.send_keys(content)
         logger.info('[%s]元素输入成功' % element_info['element_name'])
 
+    def scroll_to_element(self, element_info):
+        self.driver.execute_script("arguments[0].scrollIntoView()",self.find_element(element_info))
+
