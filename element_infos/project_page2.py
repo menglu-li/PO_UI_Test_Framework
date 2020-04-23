@@ -2,6 +2,7 @@ import os,time
 from selenium import webdriver
 from element_infos.login_page2 import LoginPage
 from common.log_utils import logger
+from common.element_info_utils import ElementinfoUtil
 
 
 class ProjectPage(LoginPage):
@@ -11,80 +12,29 @@ class ProjectPage(LoginPage):
         self.input_username('admin')
         self.input_password('admin123456')
         self.click_login()
+        element_info = ElementinfoUtil('project_page').getelement_info()
 
-        self.project_link = {'element_name': '项目链接',
-                             'locator_type': 'xpath',
-                             'locator_value': '//li[@data-id="project"]',
-                             'timeout': 5}
-        self.task_link = {'element_name': '任务链接',
-                          'locator_type': 'xpath',
-                          'locator_value': '//li[@data-id="task"]',
-                          'timeout': 5}
-        self.kanban_link = {'element_name': '看板链接',
-                            'locator_type': 'xpath',
-                            'locator_value': '//li[@data-id="kanban"]',
-                            'timeout': 5}
-        self.burn_link = {'element_name': '燃尽图链接',
-                          'locator_type': 'xpath',
-                          'locator_value': '//li[@data-id="burn"]',
-                          'timeout': 5}
-        self.story_link = {'element_name': '需求链接',
-                           'locator_type': 'xpath',
-                           'locator_value': '//li[@data-id="story"]',
-                           'timeout': 5}
-        self.qa_link = {'element_name': '测试链接',
-                        'locator_type': 'xpath',
-                        'locator_value': '//li[@data-id="qa"]',
-                        'timeout': 5}
-        self.doc_link = {'element_name': '文档链接',
-                         'locator_type': 'xpath',
-                         'locator_value': '//nav[@id="subNavbar"]//li[@data-id="doc"]',
-                         'timeout': 5}
-        self.team_link = {'element_name': '团队链接',
-                          'locator_type': 'xpath',
-                          'locator_value': '//li[@data-id="team"]',
-                          'timeout': 5}
-        self.effort_link = {'element_name': '日志链接',
-                            'locator_type': 'xpath',
-                            'locator_value': '//li[@data-id="effort"]',
-                            'timeout': 5}
-        self.action_link = {'element_name': '动态链接',
-                            'locator_type': 'xpath',
-                            'locator_value': '//li[@data-id="action"]',
-                            'timeout': 5}
-        self.product_link = {'element_name': '产品链接',
-                             'locator_type': 'xpath',
-                             'locator_value': '//nav[@id="subNavbar"]//li[@data-id="product"]',
-                             'timeout': 5}
-        self.view_link = {'element_name': '概况链接',
-                          'locator_type': 'xpath',
-                          'locator_value': '//li[@data-id="view"]',
-                          'timeout': 5}
+        # 项目页各链接（除下拉选项链接）
+        self.project_link = element_info['project_link']
+        self.task_link = element_info['task_link']
+        self.kanban_link = element_info['kanban_link']
+        self.burn_link = element_info['burn_link']
+        self.story_link = element_info['story_link']
+        self.qa_link = element_info['qa_link']
+        self.doc_link = element_info['doc_link']
+        self.team_link = element_info['team_link']
+        self.effort_link = element_info['effort_link']
+        self.action_link = element_info['action_link']
+        self.product_link = element_info['product_link']
+        self.view_link = element_info['view_link']
+
         # 新增项目页面
-        self.add_project_button = {'element_name': '添加项目按钮',
-                                   'locator_type': 'xpath',
-                                   'locator_value': '//div[@id="pageActions"]//a[text()=" 添加项目"]',
-                                   'timeout': 5}
-        self.add_project_link = {'element_name': '添加项目链接',
-                                 'locator_type': 'xpath',
-                                 'locator_value': '//div[@class="table-empty-tip"]//a[text()=" 添加项目"]',
-                                 'timeout': 5}
-        self.project_name = {'element_name': '项目名称',
-                             'locator_type': 'xpath',
-                             'locator_value': '//input[@id="name"]',
-                             'timeout': 5}
-        self.project_code = {'element_name': '项目代号',
-                             'locator_type': 'xpath',
-                             'locator_value': '//input[@id="code"]',
-                             'timeout': 5}
-        self.start_end_date = {'element_name': '起始日期',
-                               'locator_type': 'xpath',
-                               'locator_value': '//input[@id="delta7"]',
-                               'timeout': 5}
-        self.project_save_button = {'element_name': '保存按钮',
-                                    'locator_type': 'xpath',
-                                    'locator_value': '//button[@id="submit"]',
-                                    'timeout': 5}
+        self.add_project_button = element_info['add_project_button']
+        self.add_project_link = element_info['add_project_link']
+        self.project_name = element_info['project_name']
+        self.project_code = element_info['project_code']
+        self.start_end_date = element_info['start_end_date']
+        self.project_save_button = element_info['project_save_button']
 
         # 新增任务页面
         self.add_task_button = {'element_name': '新增任务',
@@ -215,16 +165,16 @@ if __name__ == '__main__':
     driver.get("http://127.0.0.1/biz/user-login-L2Jpei8=.html")
     projectpage = ProjectPage(driver)
     # 各页面链接跳转
-    # projectpage.goto_project_link()
-    # projectpage.goto_task_link()
-    # projectpage.goto_kanban_link()
-    # projectpage.goto_burn_link()
-    # projectpage.goto_story_link()
-    # projectpage.goto_doc_link()
-    # projectpage.goto_team_link()
-    # projectpage.goto_effort_link()
-    # projectpage.goto_product_link()
-    # projectpage.goto_view_link()
+    projectpage.goto_project_link()
+    projectpage.goto_task_link()
+    projectpage.goto_kanban_link()
+    projectpage.goto_burn_link()
+    projectpage.goto_story_link()
+    projectpage.goto_doc_link()
+    projectpage.goto_team_link()
+    projectpage.goto_effort_link()
+    projectpage.goto_product_link()
+    projectpage.goto_view_link()
 
     # 新增项目
     # projectpage.goto_project_link()
