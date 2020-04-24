@@ -1,6 +1,6 @@
 import os,time
 from selenium import webdriver
-from element_infos.login_page2 import LoginPage
+from element_infos.login_page_po import LoginPage
 from common.log_utils import logger
 
 

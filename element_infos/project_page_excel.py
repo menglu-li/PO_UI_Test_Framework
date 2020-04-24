@@ -1,8 +1,8 @@
 import os,time
 from selenium import webdriver
-from element_infos.login_page2 import LoginPage
+from element_infos.login_page_po import LoginPage
 from common.log_utils import logger
-from common.element_info_utils import ElementinfoUtil
+from common.excel_element_info_utils import ExcelElementinfoUtil
 
 
 class ProjectPage(LoginPage):
@@ -12,7 +12,7 @@ class ProjectPage(LoginPage):
         self.input_username('admin')
         self.input_password('admin123456')
         self.click_login()
-        element_info = ElementinfoUtil('project_page').getelement_info()
+        element_info = ExcelElementinfoUtil('project_page').get_element_info()
 
         # 项目页各链接（除下拉选项链接）
         self.project_link = element_info['project_link']
@@ -37,34 +37,14 @@ class ProjectPage(LoginPage):
         self.project_save_button = element_info['project_save_button']
 
         # 新增任务页面
-        self.add_task_button = {'element_name': '新增任务',
-                                'locator_type': 'xpath',
-                                'locator_value': '//div[@id="mainMenu"]//a[text()=" 建任务"]',
-                                'timeout': 5}
-        self.task_project_select = {'element_name': '所属项目',
-                                    'locator_type': 'xpath',
-                                    'locator_value': '//div[@id="project_chosen"]',
-                                    'timeout': 5}
-        self.task_project_select_result = {'element_name': '所属项目选项',
-                                           'locator_type': 'xpath',
-                                           'locator_value': '//ul[@class="chosen-results"]',
-                                           'timeout': 5}
-        self.task_type_select = {'element_name': '任务类型',
-                                 'locator_type': 'xpath',
-                                 'locator_value': '//td[@class="required"]//div[@id="type_chosen"]',
-                                 'timeout': 5}
-        self.task_type_result = {'element_name': '任务类型选项',
-                                 'locator_type': 'xpath',
-                                 'locator_value': '//ul[@class="chosen-results"]',
-                                 'timeout': 5}
-        self.task_name = {'element_name': '任务名称',
-                          'locator_type': 'xpath',
-                          'locator_value': '//input[@id="name"]',
-                          'timeout': 5}
-        self.task_save_button = {'element_name': '保存按钮',
-                                 'locator_type': 'xpath',
-                                 'locator_value': '//button[@id="submit"]',
-                                 'timeout': 5}
+        self.add_task_button = element_info['add_task_button']
+        self.task_project_select = element_info['task_project_select']
+        self.task_project_select_result = element_info['task_project_select_result']
+        self.task_type_select = element_info['task_type_select']
+        self.task_type_result = element_info['task_type_result']
+        self.task_name = element_info['task_name']
+        self.task_save_button = element_info['task_save_button']
+
 
     def goto_project_link(self):
         self.click(self.project_link)
