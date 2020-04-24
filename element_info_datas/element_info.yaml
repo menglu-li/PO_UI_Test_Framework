@@ -1,0 +1,150 @@
+project_link:
+- element_name: 项目链接
+- locator_type: xpath
+- locator_value: //li[@data-id="project"]
+- timeout: 5
+
+task_link: 
+- element_name: 任务链接
+- locator_type: xpath
+- locator_value: //li[@data-id="task"]
+- timeout: 3
+
+kanban_link:
+- element_name: 看板链接
+- locator_type: xpath
+- locator_value: //li[@data-id="kanban"]
+- timeout: 5
+
+burn_link:
+- element_name: 燃尽图链接
+- locator_type: xpath
+- locator_value: //li[@data-id="burn"]
+- timeout: 5
+
+story_link:
+- element_name: 需求链接
+- locator_type: xpath
+- locator_value: //li[@data-id="story"]
+- timeout: 5
+
+qa_link:
+- element_name: 测试链接
+- locator_type: xpath
+- locator_value: //li[@data-id="qa"]
+- timeout: 5
+
+doc_link:
+- element_name: 文档链接
+- locator_type: xpath
+- locator_value: //nav[@id="subNavbar"]//li[@data-id="doc"]
+- timeout: 5
+
+team_link:
+- element_name: 团队链接
+- locator_type: xpath
+- locator_value: //li[@data-id="team"]
+- timeout: 5
+
+effort_link:
+- element_name: 日志链接
+- locator_type: xpath
+- locator_value: //li[@data-id="effort"]
+- timeout: 5
+
+action_link:
+- element_name: 动态链接
+- locator_type: xpath
+- locator_value: //li[@data-id="action"]
+- timeout: 5   
+
+product_link:
+- element_name: 产品链接
+- locator_type: xpath
+- locator_value: //nav[@id="subNavbar"]//li[@data-id="product"]
+- timeout: 5
+
+view_link:
+- element_name: 概况链接
+- locator_type: xpath
+- locator_value: //li[@data-id="view"]
+- timeout: 5
+
+add_project_button:
+- element_name: 添加项目按钮
+- locator_type: xpath
+- locator_value: //div[@id="pageActions"]//a[text()=" 添加项目"]
+- timeout: 5
+
+add_project_link:
+- element_name: 添加项目链接
+- locator_type: xpath
+- locator_value: //div[@class="table-empty-tip"]//a[text()=" 添加项目"]
+- timeout: 5
+
+project_name:
+- element_name: 项目名称
+- locator_type: xpath
+- locator_value: //input[@id="name"]
+- timeout: 5
+
+project_code:
+- element_name: 项目代号
+- locator_type: xpath
+- locator_value: //input[@id="code"]
+- timeout: 5
+
+start_end_date:
+- element_name: 起始日期
+- locator_type: xpath
+- locator_value: //input[@id="delta7"]
+- timeout: 5
+
+project_save_button:
+- element_name: 保存按钮
+- locator_type: xpath
+- locator_value: //button[@id="submit"]
+- timeout: 5
+
+add_task_button:
+- element_name: 新增任务
+- locator_type: xpath
+- locator_value: //div[@id="mainMenu"]//a[text()=" 建任务"]
+- timeout: 5
+
+task_project_select:
+- element_name: 所属项目
+- locator_type: xpath
+- locator_value: //div[@id="projectosen"]
+- timeout: 5
+
+task_project_select_result:
+- element_name: 所属项目选项
+- locator_type: xpath
+- locator_value: //ul[@class="chosen-results"]
+- timeout: 5
+
+task_type_select:
+- element_name: 任务类型
+- locator_type: xpath
+- locator_value: //td[@class="required"]//div[@id="typeosen"]
+- timeout: 5
+
+task_type_result:
+- element_name: 任务类型选项
+- locator_type: xpath
+- locator_value: //ul[@class="chosen-results"]
+- timeout: 5
+
+task_name:
+- element_name: 任务名称
+- locator_type: xpath
+- locator_value: //input[@id="name"]
+- timeout: 5
+
+task_save_button:
+- element_name: 保存按钮
+- locator_type: xpath
+- locator_value: //button[@id="submit"]
+- timeout: 5
+
