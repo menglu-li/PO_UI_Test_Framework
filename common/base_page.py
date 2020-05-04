@@ -13,6 +13,9 @@ class BasePage():
     def __init__(self, driver):
         self.driver = driver
 
+    def open_url(self,url):
+        self.driver.get(url)
+
     def set_browser_max(self):
         self.driver.maximize_window()
         logger.info('设置浏览器最大化')
