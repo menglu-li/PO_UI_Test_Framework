@@ -3,7 +3,7 @@ from selenium import webdriver
 from element_infos.login_page_po import LoginPage
 from common.log_utils import logger
 from common.excel_element_info_utils import ExcelElementinfoUtil
-
+from common.browser import Browser
 
 class ProjectPage(LoginPage):
 
@@ -165,12 +165,12 @@ if __name__ == '__main__':
     # projectpage.click_save_project_button()
 
     # 新增任务
-    projectpage.goto_project_link()
-    projectpage.goto_task_link()
-    projectpage.click_add_task_button()
-    projectpage.input_task_project("项目名称01")
-    projectpage.input_task_type("设计")
-    projectpage.input_task_name("任务名称02")
-    projectpage.click_save_task_button()
+    # projectpage.goto_project_link()
+    # projectpage.goto_task_link()
+    # projectpage.click_add_task_button()
+    # projectpage.input_task_project("项目名称01")
+    # projectpage.input_task_type("设计")
+    # projectpage.input_task_name("任务名称02")
+    # projectpage.click_save_task_button()
 
     driver.close()

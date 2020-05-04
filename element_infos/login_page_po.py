@@ -3,6 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from common.base_page import BasePage
 from common.browser import Browser
+from common.excel_element_info_utils import ExcelElementinfoUtil
 import time
 
 # 并把各种输入点击操作写入日志
@@ -17,22 +18,27 @@ class LoginPage(BasePage):
         super().__init__(driver)
         # self.driver.implicitly_wait(10)
         # self.driver.get('http://127.0.0.1/biz/user-login-L2Jpei8=.html')
-        self.username_inputbox = {'element_name':'用户输入框',
-                                  'locator_type': 'xpath',
-                                  'locator_value':'//input[@id="account"]',
-                                  'timeout':5}
-        self.password_inputbox = {'element_name':'密码输入框',
-                                          'locator_type': 'xpath',
-                                          'locator_value':'//input[@name="password"]',
-                                          'timeout':5}
-        self.keeplogin_checkbox = {'element_name': '保持登录',
-                                  'locator_type': 'xpath',
-                                  'locator_value': '//input[@id="keepLoginon"]',
-                                  'timeout': 5}
-        self.login_button = {'element_name': '保持登录',
-                                  'locator_type': 'xpath',
-                                  'locator_value': '//button[@id="submit"]',
-                                  'timeout': 5}
+        # self.username_inputbox = {'element_name':'用户输入框',
+        #                           'locator_type': 'xpath',
+        #                           'locator_value':'//input[@id="account"]',
+        #                           'timeout':5}
+        # self.password_inputbox = {'element_name':'密码输入框',
+        #                                   'locator_type': 'xpath',
+        #                                   'locator_value':'//input[@name="password"]',
+        #                                   'timeout':5}
+        # self.keeplogin_checkbox = {'element_name': '保持登录',
+        #                           'locator_type': 'xpath',
+        #                           'locator_value': '//input[@id="keepLoginon"]',
+        #                           'timeout': 5}
+        # self.login_button = {'element_name': '登录',
+        #                           'locator_type': 'xpath',
+        #                           'locator_value': '//button[@id="submit"]',
+        #                           'timeout': 5}
+        self.element_info = ExcelElementinfoUtil('login_page').get_element_info()
+        self.username_inputbox = self.element_info['username_inputbox']
+        self.password_inputbox = self.element_info['password_inputbox']
+        self.keeplogin_checkbox = self.element_info['keeplogin_checkbox']
+        self.login_button = self.element_info['login_button']
 
     def input_username(self, username):
         self.input(self.username_inputbox, username)

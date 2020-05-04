@@ -16,13 +16,13 @@ class ExcelElementinfoUtil:
         element_infos = {}
         for i in range(1,rows):
             element_info = {}
-            element_info['element_name'] = self.worksheet.cell_value(i,1)
-            element_info['locator_type'] = self.worksheet.cell_value(i,2)
-            element_info['locator_value'] = self.worksheet.cell_value(i,3)
-            element_info['timeout'] = int(self.worksheet.cell_value(i,4))
+            element_info['element_name'] = self.worksheet.cell_value(i, 1)
+            element_info['locator_type'] = self.worksheet.cell_value(i, 3)
+            element_info['locator_value'] = self.worksheet.cell_value(i, 4)
+            element_info['timeout'] = int(self.worksheet.cell_value(i, 5))
             element_infos[self.worksheet.cell_value(i, 0)] = element_info
         return element_infos
 
 if __name__ =='__main__':
-    element_info = ExcelElementinfoUtil('project_page').getelement_info()
+    element_info = ExcelElementinfoUtil('project_page').get_element_info()
     print(element_info)
