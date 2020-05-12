@@ -34,11 +34,11 @@ class LoginPage(BasePage):
         #                           'locator_type': 'xpath',
         #                           'locator_value': '//button[@id="submit"]',
         #                           'timeout': 5}
-        self.element_info = ExcelElementinfoUtil('login_page').get_element_info()
-        self.username_inputbox = self.element_info['username_inputbox']
-        self.password_inputbox = self.element_info['password_inputbox']
-        self.keeplogin_checkbox = self.element_info['keeplogin_checkbox']
-        self.login_button = self.element_info['login_button']
+        self.main_page_element_info = ExcelElementinfoUtil('login_page', 'main_page').get_element_info()
+        self.username_inputbox = self.main_page_element_info['username_inputbox']
+        self.password_inputbox = self.main_page_element_info['password_inputbox']
+        self.keeplogin_checkbox = self.main_page_element_info['keeplogin_checkbox']
+        self.login_button = self.main_page_element_info['login_button']
 
     def input_username(self, username):
         self.input(self.username_inputbox, username)

@@ -33,13 +33,22 @@ class ConfigUtils():
         init_driver = self.config.get('default', 'init_driver_type')
         return init_driver
 
+    # @property
+    def time_out(self):
+        time_out = self.config.get('default', 'time_out')
+        return time_out
+
+    # @property
+    def get_screenshot_url(self):
+        screenshot_url = self.config.get('default', 'screenshot_url')
+        return screenshot_url
+
 local_config = ConfigUtils()
 
-if __name__ == '__main__':
-    local_config = ConfigUtils()
-    print(local_config.get_driver_path())
-    print(local_config.get_chrome_driver())
-    print(local_config.get_firefox_driver())
-    print(local_config.get_init_driver())
-
+# if __name__ == '__main__':
+#     local_config = ConfigUtils()
+#     print(local_config.get_driver_path())
+#     print(local_config.get_chrome_driver())
+#     print(local_config.get_firefox_driver())
+#     print(local_config.get_init_driver())
 

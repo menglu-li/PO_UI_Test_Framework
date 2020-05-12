@@ -12,38 +12,46 @@ class ProjectPage(LoginPage):
         self.input_username('admin')
         self.input_password('admin123456')
         self.click_login()
-        element_info = ExcelElementinfoUtil('project_page').get_element_info()
 
-        # 项目页各链接（除下拉选项链接）
-        self.project_link = element_info['project_link']
-        self.task_link = element_info['task_link']
-        self.kanban_link = element_info['kanban_link']
-        self.burn_link = element_info['burn_link']
-        self.story_link = element_info['story_link']
-        self.qa_link = element_info['qa_link']
-        self.doc_link = element_info['doc_link']
-        self.team_link = element_info['team_link']
-        self.effort_link = element_info['effort_link']
-        self.action_link = element_info['action_link']
-        self.product_link = element_info['product_link']
-        self.view_link = element_info['view_link']
+        # 主面板-项目模块页面各链接（除下拉选项链接）
+        first_page_element_info = ExcelElementinfoUtil('project_page', 'first_page').get_element_info()
+        self.project_link = first_page_element_info['project_link']
+        self.task_link = first_page_element_info['task_link']
+        self.kanban_link = first_page_element_info['kanban_link']
+        self.burn_link = first_page_element_info['burn_link']
+        self.story_link = first_page_element_info['story_link']
+        self.qa_link = first_page_element_info['qa_link']
+        self.doc_link = first_page_element_info['doc_link']
+        self.team_link = first_page_element_info['team_link']
+        self.effort_link = first_page_element_info['effort_link']
+        self.action_link = first_page_element_info['action_link']
+        self.product_link = first_page_element_info['product_link']
+        self.view_link = first_page_element_info['view_link']
+
+        # 项目页面
+        project_page_element_info = ExcelElementinfoUtil('project_page', 'project_page').get_element_info()
+        self.add_project_button = project_page_element_info['add_project_button']
+        self.add_project_link = project_page_element_info['add_project_link']
 
         # 新增项目页面
-        self.add_project_button = element_info['add_project_button']
-        self.add_project_link = element_info['add_project_link']
-        self.project_name = element_info['project_name']
-        self.project_code = element_info['project_code']
-        self.start_end_date = element_info['start_end_date']
-        self.project_save_button = element_info['project_save_button']
+        add_project_page_element_info = ExcelElementinfoUtil('project_page', 'add_project_page').get_element_info()
+        self.project_name = add_project_page_element_info['project_name']
+        self.project_code = add_project_page_element_info['project_code']
+        self.start_end_date = add_project_page_element_info['start_end_date']
+        self.project_save_button = add_project_page_element_info['project_save_button']
+
+        # 任务页面
+        task_page_element_info = ExcelElementinfoUtil('project_page', 'task_page').get_element_info()
+        self.add_task_button = task_page_element_info['add_task_button']
 
         # 新增任务页面
-        self.add_task_button = element_info['add_task_button']
-        self.task_project_select = element_info['task_project_select']
-        self.task_project_select_result = element_info['task_project_select_result']
-        self.task_type_select = element_info['task_type_select']
-        self.task_type_result = element_info['task_type_result']
-        self.task_name = element_info['task_name']
-        self.task_save_button = element_info['task_save_button']
+        add_task_page_element_info = ExcelElementinfoUtil('project_page', 'add_task_page').get_element_info()
+        self.task_project_select = add_task_page_element_info['task_project_select']
+        self.task_project_select_result = add_task_page_element_info['task_project_select_result']
+        self.task_type_select = add_task_page_element_info['task_type_select']
+        self.task_type_result = add_task_page_element_info['task_type_result']
+        self.task_name = add_task_page_element_info['task_name']
+        self.task_save_button = add_task_page_element_info['task_save_button']
 
 
     def goto_project_link(self):
